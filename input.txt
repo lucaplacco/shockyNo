@@ -1,0 +1,45 @@
+###################################
+# ShockyNo 1.1 Configuration file #
+###################################
+
+# Solver main setting 
+0                        ! 0, Euler solver - 1, DNS
+1                        ! 0, Inflow - 1, Shocktube - 2, Signal - 3, Burgers/Scalar
+
+# Inflow condition
+2.00                     ! Free stream Mach number
+1000000.00               ! Free stream Reynolds number
+1.00                     ! Free stream density
+1.00                     ! Free stream pressure
+0.0001                   ! Free stream viscosity
+0.71                     ! Prandtl number
+1.41                     ! Specific heat ratio
+
+# Shocktube configuration
+1.000                    ! Left side density
+1.000                    ! Left side pressure
+0.000                    ! Left side velocity
+0.125                    ! Right side density
+0.100                    ! Right side pressure
+0.000                    ! Right side velocity
+0.500                    ! Diaphram position (x%L)
+
+# Discretization
+10                       ! Domain length
+1000                     ! Number of subdivisions (nodes)
+2000                     ! Number of iterations
+0.001                    ! Timestep
+4                        ! Order for Runge-Kutta scheme
+2                        ! Order for convective terms
+2                        ! Order for diffusive terms
+3                        ! Order for the WENO scheme
+1                        ! Flux splitting type (0, component-wise - 1, characteristic-wise)
+
+# Boundary conditions
+0                        ! 0, Supersonic Inflow/Outflow - 1, Periodic BCs
+
+# Burgers' equation
+0.05                     ! Convection coefficient (velocity)
+
+# Debug mode
+1                        ! 0, Verbose OFF - 1, Verbose ON
