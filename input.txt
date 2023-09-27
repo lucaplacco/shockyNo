@@ -1,10 +1,10 @@
 ###################################
-# ShockyNo 1.1 Configuration file #
+# ShockyNo 1.2 Configuration file #
 ###################################
 
-# Solver main setting 
+# Solver main settings
 0                        ! 0, Euler solver - 1, DNS
-1                        ! 0, Inflow - 1, Shocktube - 2, Signal - 3, Burgers/Scalar
+4                        ! 0, Inflow - 1, Shocktube - 2, Signal - 3, Burgers/Scalar - 4, Walltube (rq. IBM)
 
 # Inflow condition
 2.00                     ! Free stream Mach number
@@ -19,27 +19,31 @@
 1.000                    ! Left side density
 1.000                    ! Left side pressure
 0.000                    ! Left side velocity
-0.125                    ! Right side density
-0.100                    ! Right side pressure
+1.000                    ! Right side density
+1.000                    ! Right side pressure
 0.000                    ! Right side velocity
 0.500                    ! Diaphram position (x%L)
 
 # Discretization
 10                       ! Domain length
-1000                     ! Number of subdivisions (nodes)
-2000                     ! Number of iterations
+500                     ! Number of subdivisions (nodes)
+10000                  ! Number of iterations
 0.001                    ! Timestep
-4                        ! Order for Runge-Kutta scheme
+1                        ! Order for Runge-Kutta scheme
 2                        ! Order for convective terms
 2                        ! Order for diffusive terms
-3                        ! Order for the WENO scheme
+1                        ! Order for the WENO scheme
 1                        ! Flux splitting type (0, component-wise - 1, characteristic-wise)
 
 # Boundary conditions
-0                        ! 0, Supersonic Inflow/Outflow - 1, Periodic BCs
+4                        ! 0, Supersonic Inflow/Outflow - 1, Periodic BCs - 2, Open/Wall - 3, Wall/Open - 4, Sealed
+1                        ! 1, Immersed-Boundary ON - 0, OFF
+0.0005                 ! Interface position (x) 2.64950 (55 - 0 / 44 - 1) -1.978367
+0.300                    ! Interface velocity (amplitude)
+0.5                        ! Interface modulation function (0, OFF - Frequency of oscillation [n.d.], ON)
 
 # Burgers' equation
 0.05                     ! Convection coefficient (velocity)
 
 # Debug mode
-1                        ! 0, Verbose OFF - 1, Verbose ON
+0                        ! 0, DEBUG OFF - 1, Verbose ON - 2, Verbose ON, no RUN
